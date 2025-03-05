@@ -1,0 +1,30 @@
+#my_photo{
+    height:200px;
+    width:200px;
+}
+#contact_form > label,input{
+    display: inline-block;
+}
+  
+#contact_form > label{
+    width:80px;
+    text-align: right;
+    vertical-align: top;
+}
+#comm{
+    height:200px;
+}
+footer{
+    position:absolute;
+    bottom: 0px;
+}
+
+a{
+    background-color: rgb(211, 216, 142);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: ease 300ms;
+}
+a:hover{
+    background-color: grey;
+}
