@@ -1,21 +1,48 @@
 :root{
-    --softGreen:#92ad70;
-    --lightYellow:rgb(211, 216, 142);
+    --mint:#90f9a0;
+    --mint_shine:#d5f6d7;
+    --deepOcean:rgb(38, 77, 163);
+    --nightOcean:#05173b;
+    --darkOcean:#0b0218;
+    --coolOcean:rgb(60, 120, 151);
+    --shallowOcean:rgb(131, 185, 220);
+    --oceanWave:rgb(199, 226, 241);
+}
+body{
+    background-color: var(--darkOcean);
 }
 *{
     font-family: "Roboto";
     font-size: 20px;
     font-weight: 100;
-    font-style: normal;
+    font-style:none;
     font-variation-settings: none;
     padding: 5px;
     margin: 5px;
+    color: white;
+}
+h1{
+    font-weight:500;
+    font-size:30px;
+}
+h2{
+    font-weight: 300;
+    font-size: 30px;
+}
+b{
+    color:inherit;
+    font-weight:300;
+    display: inline;
 }
 footer{
-    margin-top:10px;
+    margin-top:5px;
 }
 #webname{
-    background-color: var(--softGreen);
+    border-radius: 8px;
+    padding-left: 10px;
+    color: var(--mint);
+    background-color: var(--nightOcean);
+    width:99%;
 }
 #my_photo{
     height:200px;
@@ -26,38 +53,64 @@ footer{
     margin:auto;
     text-align: center;
 }
+input{
+    background-color: var(--shallowOcean);
+}
+textarea{
+    background-color: var(--shallowOcean);
+}
 #submit{
-    background-color: var(--softGreen);
+    margin-top:10px;
+    color:var(--darkOcean);
+    font-weight:300;
+    background-color: var(--mint);
     border:none;
+    transition: ease 100ms;
     border-radius: 12px;
+}
+#submit:hover{
+    background-color: var(--mint_shine);
 }
 #comm{
     height:200px;
 }
+nav{
+    margin-left:-5px;
+}
 .nav_a{
-    background-color: var(--lightYellow);
-    color: rgb(0, 0, 0);
+    background-color: var(--mint);
+    color: var(--deepOcean);
+    border-radius: 100px;
+    font-weight: 500;
     text-decoration: none;
     transition: ease 300ms;
     margin-right:15px;
-    
+    display:inline-block;
+    width:120px;
+    padding-left: 20px;
+    text-align: left;
 }
 header{
-    background: lightblue;
+    background: var(--deepOcean);
+    width: 102%;
+    margin-top: -20px;
+    margin-left: -20px;
 }
 a:hover{
-    background-color: grey;
+    background-color: var(--mint_shine);
 }
 table th{
     padding-top: 12px;
     padding-bottom: 12px;
-    background-color: rgb(92, 177, 174);
-    color: rgb(255, 255, 255);
+    background-color: var(--coolOcean);
     width: fit-content;
 }
 tr{
-    background-color: rgb(227, 227, 227);
+    background-color: var(--shallowOcean);
 }
 tr:nth-child(even){
-    background-color: rgb(203, 203, 203);
+    background-color: var(--oceanWave);
+}
+tr>td{
+    color:black;
 }
