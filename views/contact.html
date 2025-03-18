@@ -16,52 +16,58 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <script src="../static/js/script.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body onload="addYear()">
         <header>
             <h1 id="webname">Lawrence Song</h1>
             <nav>
-                <a href="../index.html" class="nav_a">Home</a>
-                <a href="./cv.html" class="nav_a">CV</a>
-                <a href="./contact.html" class="nav_a">Contact me</a>
-                <a href="./fun.html" class="nav_a">For fun</a>
+                <a href="../index.html">Home</a>
+                <a href="./cv.html">CV</a>
+                <a href="./contact.html" class="selected">Contact me</a>
+                <a href="./fun.html">For fun</a>
             </nav>
         </header>
         <div class="main">
             <h2>Contact Me</h2>
-            <form action="/action_page.php" method="get" id="contact_form">
-                <label for="name">Your name (required):</label>
-                <input type="text" id="name" name="name" required><br><br>
-
-                <label for="email">Your email:</label>
-                <input type="email" id="email" name="email"><br><br>
-
-                <label for="comm">Comments:</label>
-                <textarea name="comm" id="comm" cols="30" rows="10"></textarea>
-
-                <input type="submit" value="Submit" id="submit"><br><br>
-            </form>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>My Contact Information</th>
-                    </tr>
-                    <tr>
-                        <th>My Email</th>
-                        <th>My Phone</th> 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>lingyis@andrew.cmu.edu</td>
-                        <td>412-xxx-xxxx</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="content">
+                <form method="get" id="contact_form">
+                    <label for="name">Your name (required):</label>
+                    <input type="text" id="name" name="name" required><br>
+    
+                    <label for="email">Your email:</label>
+                    <input type="email" id="email" name="email"><br>
+    
+                    <label for="comm">Comments:</label>
+                    <textarea name="comm" id="comm" cols="30" rows="10"></textarea>
+    
+                    <p id="form_msg">Plese fill the red items </p>
+                    <input type="submit" value="Submit" id="submit" onclick="validate_form()"><br><br>
+                </form>
+    
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>My Contact Information</th>
+                        </tr>
+                        <tr>
+                            <th>My Email</th>
+                            <th>My Phone</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>lingyis@andrew.cmu.edu</td>
+                            <td>412-xxx-xxxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <footer>
-            &copy Design and coded by Lawrence Song
+            &copy Design and coded by<b>Lawrence Song</b><p id="copyYear"></p>
         </footer>
     </body>
 </html>

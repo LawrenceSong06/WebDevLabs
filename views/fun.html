@@ -16,27 +16,32 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <script src="../static/js/script.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body onload="addYear()">
         <header>
             <h1 id="webname">Lawrence Song</h1>
             <nav>
-                <a href="../index.html" class="nav_a">Home</a>
-                <a href="./cv.html" class="nav_a">CV</a>
-                <a href="./contact.html" class="nav_a">Contact me</a>
-                <a href="./fun.html" class="nav_a">For fun</a>
+                <a href="../index.html">Home</a>
+                <a href="./cv.html">CV</a>
+                <a href="./contact.html">Contact me</a>
+                <a href="./fun.html" class="selected">For fun</a>
             </nav>
         </header>
         <div class="main">
             <h2>Things I love to do for fun</h2>
-            <ul>
-                <li>Programing</li>
-                <li>Parkour</li>
-                <li>Ping-pong</li>
-            </ul>
+            <div id="content">
+                <button id="showList" onclick="showList()">Show</button>
+                <ul id="fun_list">
+                    <li>Programing</li>
+                    <li>Parkour</li>
+                    <li>Ping-pong</li>
+                 </ul>
+            </div>
         </div>
         <footer>
-            &copy Design and coded by Lawrence Song
+            &copy Design and coded by<b>Lawrence Song</b><p id="copyYear"></p>
         </footer>
     </body>
 </html>

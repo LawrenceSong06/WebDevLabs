@@ -15,45 +15,49 @@
         <!-- General Layout  -->
         <script src="../static/js/script.js" defer></script>
         <link rel="stylesheet" href="../static/css/style.css">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     </head>
-    <body style="font-family: Arial">
+    <body style="font-family: Arial" onload="addYear()">
         <header>
             <h1 id="webname">Lawrence Song</h1>
             <nav>
-                <a href="../index.html" class="nav_a">Home</a>
-                <a href="./cv.html" class="nav_a">CV</a>
-                <a href="./contact.html" class="nav_a">Contact me</a>
-                <a href="./fun.html" class="nav_a">For fun</a>
+                <a href="../index.html">Home</a>
+                <a href="./cv.html" class="selected">CV</a>
+                <a href="./contact.html">Contact me</a>
+                <a href="./fun.html">For fun</a>
             </nav>
         </header>
         <div class="main">
             <h2>Curriculum Vitae</h2>
-            <table id="cv_table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Carnegie Mellon University</td>
-                        <td>My <b>undergraduate</b> school</td>
-                    </tr>
-                    <tr>
-                        <td>Bla</td>
-                        <td>Bla</td>
-                    </tr>
-                    <tr>
-                        <td>Bla</td>
-                        <td>Bla</td>
-                    </tr>
-                </tbody>
-            </table>
-            <a href="../static/files/Lingyi Song_Resume.pdf" target="_blank">Download my resume</a>
+            <div id="content">
+                <table id="cv_table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carnegie Mellon University</td>
+                            <td>My <b>undergraduate</b> school</td>
+                        </tr>
+                        <tr>
+                            <td>Bla</td>
+                            <td>Bla</td>
+                        </tr>
+                        <tr>
+                            <td>Bla</td>
+                            <td>Bla</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="../static/files/Lingyi Song_Resume.pdf" target="_blank">Download my resume</a>
+            </div>
         </div>
         <footer>
-            &copy Design and coded by Lawrence Song
+            &copy Design and coded by<b>Lawrence Song</b><p id="copyYear"></p>
         </footer>
     </body>
 </html>

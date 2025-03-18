@@ -30,7 +30,7 @@ L2 = ["Apple","Banana","Kiwi","Orange"];
 function findTheBanana(list){
     for(let i = 0 ; i < list.length ; i++){
         if(list[i] == "Banana"){
-            window.alert("found the Banana in "+i);
+            // window.alert("found the Banana in "+i);
         }
     }
 }
@@ -39,7 +39,7 @@ findTheBanana(L2);
 
 function findBananaL1(item){
     if(item=="Banana"){
-        window.alert("Found Banana in the first list");
+        // window.alert("Found Banana in the first list");
     }
 }
 L1.forEach(findBananaL1);
@@ -80,3 +80,37 @@ function splitPathBySlash(p){
 var path_split = splitPathBySlash(path);
 
 if(path_split[path_split.length-1]=="index.html") greetingFunc();
+
+function addYear(){
+    var d = new Date();
+    var year = d.getFullYear();
+    document.getElementById("copyYear").innerHTML = " @" +year;
+}
+
+function showList(){
+    let fun_list = document.getElementById("fun_list");
+    document.getElementById("showList").style.display = "none";
+    fun_list.style.display = "block";
+}
+
+$(".read_more_or_less").click(function read_more_or_less(){
+    let status = $(this).closest(".read_more_or_less").attr("status");
+    let read_more = $(this).closest(".read_more_or_less").attr("read_more");
+    let read_less = $(this).closest(".read_more_or_less").attr("read_less");
+    if(status=="Read more"){
+        $(this).siblings(".full_content").css("display","block");
+        $(this).closest(".read_more_or_less").html(read_less);
+        $(this).closest(".read_more_or_less").attr("status","Read less");
+    }else{
+        $(this).siblings(".full_content").css("display","none");
+        $(this).closest(".read_more_or_less").html(read_more);
+        $(this).closest(".read_more_or_less").attr("status","Read more");
+    }
+})
+
+function validate_form(){
+    if(!document.getElementById("name").checkValidity()){
+        document.getElementById("form_msg").style.display="block";
+        document.getElementById("name").style.border="solid red";
+    }
+}
