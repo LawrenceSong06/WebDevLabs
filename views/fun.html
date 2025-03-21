@@ -19,7 +19,7 @@
 
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     </head>
-    <body onload="addYear()">
+    <body onload="initPage()">
         <header>
             <h1 id="webname">Lawrence Song</h1>
             <nav>
@@ -29,19 +29,35 @@
                 <a href="./fun.html" class="selected">For fun</a>
             </nav>
         </header>
-        <div class="main">
-            <h2>Things I love to do for fun</h2>
-            <div id="content">
-                <button id="showList" onclick="showList()">Show</button>
+        <div class="mainLayout">
+            <div id="item1">
+                <h2>Things I love to do for fun</h2>
+                <!-- <button id="showList" onclick="showList()">Show</button> -->
                 <ul id="fun_list">
                     <li>Programing</li>
                     <li>Parkour</li>
                     <li>Ping-pong</li>
                  </ul>
             </div>
+            <div id="item2">
+                <img src="../static/imgs/favicon.png" alt="fun photo of fine" class="funIMG">
+            </div>
+            <div id="item3">
+                <iframe id="duquesne_incline" src="https://www.youtube.com/embed/bSLvrz5GraI" title="Only in Pittsburgh: Duquesne Incline" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div id="item4">
+                <div class="container">
+                    <h2>Need Some Advice?</h2>
+                    <p id="adviceText">Click the button to get a random advice</p>
+                    <button onclick="getAdvice()">Get</button>
+                </div>
+            </div>
         </div>
         <footer>
-            &copy Design and coded by<b>Lawrence Song</b><p id="copyYear"></p>
+            &copy; Design and coded by<b>Lawrence Song</b><p id="copyYear"></p><br>
+            <div id="weather_forcast">
+                Weather Forecast: <!--<img id="weather_icon" src="../static/imgs/weather/中雪.png">--> <p id="weather"></p>
+            </div>
         </footer>
     </body>
 </html>

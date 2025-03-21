@@ -87,11 +87,11 @@ function addYear(){
     document.getElementById("copyYear").innerHTML = " @" +year;
 }
 
-function showList(){
-    let fun_list = document.getElementById("fun_list");
-    document.getElementById("showList").style.display = "none";
-    fun_list.style.display = "block";
-}
+// function showList(){
+//     let fun_list = document.getElementById("fun_list");
+//     document.getElementById("showList").style.display = "none";
+//     fun_list.style.display = "block";
+// }
 
 $(".read_more_or_less").click(function read_more_or_less(){
     let status = $(this).closest(".read_more_or_less").attr("status");
@@ -113,4 +113,31 @@ function validate_form(){
         document.getElementById("form_msg").style.display="block";
         document.getElementById("name").style.border="solid red";
     }
+}
+
+function getAdvice(){
+    fetch("https://api.adviceslip.com/advice", {method: "GET"})
+    .then(response => response.json())
+    .then(data => document.getElementById("adviceText").innerHTML= data.slip.advice)
+    .catch(error => console.log(error));
+
+
+}
+
+function getWeather(){
+    fetch("https://api.weather.gov/gridpoints/PBZ/79,67/forecast",{method:"GET"})
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("weather").innerHTML = 
+            data.properties.periods[0].shortForecast +
+             ", " + data.properties.periods[0].temperature + 
+             data.properties.periods[0].temperatureUnit + 
+             "&deg;";
+    })
+    .catch(error => console.log(error));
+}
+
+function initPage(){
+    addYear();
+    getWeather();
 }
