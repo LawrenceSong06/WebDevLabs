@@ -5,21 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../static/css/template.css">
+    <script src="../static/js/script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <header>Header</header>
+        <header>
+            <h2 id="greeting">Hi, my name is Lawrence</h2>
+        </header>
         <nav>
-            <a href="../index.html">index.html</a>
-            <a href="./contact.html">contact.html</a>
-            <a href="./cv.html">cv.html</a>
-            <a href="./fun.html">fun.html</a>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+            <div id="links">
+                <a href="../index.html">index.html</a>
+                <a href="./contact.html">contact.html</a>
+                <a href="./cv.html">cv.html</a>
+                <a href="./fun.html">fun.html</a>
+            </div>
         </nav>
-        <figure>Figure</figure>
-        <article>Article</article>
-        <section>Section</section>
-        <footer>footer</footer>
+        <figure>
+            <img src="../static/imgs/my_photo.jpg" alt="My Photo" id="my_photo" title="My Photo"/>
+        </figure>
+        <article>
+            <p class="short_content">
+                My name is Lawrence Song, a current undergraduate student at<b>Carnegie Mellon University</b>.
+                I am majoring in Information Systems. 
+                I am also interested in Computer Science and is currently trying to double major in it.
+            </p>
+            <p class="full_content">
+                ......Wow! You extended my bio!
+                Thank you so much!
+                I am so glad that you can read more about my introduction.
+                Feel free to look at my CV in "CV", ask me any question in "Contact Me", or see what I like to do in "For fun"!
+            </p>
+            <button class="read_more_or_less" status="Read more" read_more="Read more" read_less="Read less">Read more</button>
+        </article>
+        <section>
+            <h2>Curriculum Vitae</h2>
+            <table id="cv_table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Carnegie Mellon University</td>
+                        <td>My <b>undergraduate</b> school</td>
+                    </tr>
+                    <tr>
+                        <td>Bla</td>
+                        <td>Bla</td>
+                    </tr>
+                    <tr>
+                        <td>Bla</td>
+                        <td>Bla</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <footer>
+            &copy; Design and coded by<b>Lawrence Song</b><p id="copyYear"></p>
+        </footer>
     </div>
 </body>
 </html>

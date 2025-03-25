@@ -137,7 +137,31 @@ function getWeather(){
     .catch(error => console.log(error));
 }
 
+function selectPage(){
+    let path = window.location.href;
+    path = path.split("/");
+    let nav = document.getElementsByTagName("nav");
+    let links = nav[0].children;
+    for (let i = 0; i < links.length; i++) {
+        if(links[i].href.includes(path[path.length-1])){
+            links[i].classList.add("selected");
+        }        
+    }
+}
+
+function toggleMenu(){
+    let nav = document.getElementById("links");
+    console.log(nav.className.indexOf("hidden") != -1);
+    if(nav.classList.contains("hidden")){
+        nav.classList.remove("hidden");
+    }else{
+        nav.classList.add("hidden");
+    }
+}
+
 function initPage(){
+    selectPage();
     addYear();
     getWeather();
 }
+

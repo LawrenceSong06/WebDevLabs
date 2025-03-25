@@ -9,10 +9,8 @@ body{
         'figure article'
         'section section'
         'footer footer';
-    grid-template-rows: 20% 5% 30% 40% 5%;
-    grid-template-columns: 50% 50%;
 
-    height: 100vh;
+    min-height: 100vh;
     width:100vw;
 
     text-align: center;
@@ -45,13 +43,20 @@ figure{
 article{
     grid-area: article;
     background-color: aquamarine;
+
+    text-align: left;
 }
 section{
     grid-area: section;
     background-color: antiquewhite;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-nav a{
+nav div a{
     border: solid 2px black;
     border-radius: 10px;
     text-decoration: none;
@@ -59,7 +64,11 @@ nav a{
     height:80%;
 }
 
-@media screen and (max-width: 600px) {
+nav .fas.fa-bars{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
     .container{
         display:grid;    
         grid-template-areas:
@@ -69,11 +78,45 @@ nav a{
             'article article'
             'section section'
             'footer footer';
-        grid-template-rows: 20% 5% 25% 20% 20% 10%;
-    
-        height: 200vh;
+        min-height: 100vh;
         width:100vw;
     
         text-align: center;
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    #links.hidden{
+        display: none;
+    }
+    #links{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        animation:pull_out 2s;
+    }
+    nav .fas.fa-bars{
+        display: inline-block;
+    }
+}
+
+#my_photo{
+    width:50%;
+    object-fit: cover;
+}
+.full_content{
+    display: none;
+}
+
+@keyframes pull_out{
+    from{
+        max-height:0%;
+    }
+    to{
+        max-height:100%;
     }
 }
