@@ -1,0 +1,51 @@
+main{
+    width:100%;
+    margin:0 0 0 0;
+    box-sizing: border-box;
+    padding:1em 1em 1em 1em;
+}
+form{
+    background-color: var(--myBlue);
+    width:100%;
+    box-sizing: border-box;
+    padding: 1em 1em 1em 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    gap:1em;
+}
+form .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap:.5em;
+
+    width:100%;
+}
+form input, form textarea{
+    color: black;
+}
+form h2{
+    color:white;
+}
+form label{
+    color:white;
+}
+.error{
+    color:var(--myRed);
+}
+input{
+    border:none;
+    border-radius: .2em;
+}
+input[type=submit]{
+    background-color: var(--myYellow);
+    width:5em;
+    color:white;
+}
+form .msg{
+    color:red;
+}
