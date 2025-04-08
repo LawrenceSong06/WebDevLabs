@@ -1,51 +1,167 @@
-var path = window.location.href;
-path = path.split('/');
-// This variable "all" would be initialzied in the "init_keyboard_accessibility()" function
-var all = document.querySelectorAll("*");
-// testing functions
-function x_ray(value){
-    if(value){
-        for (let i = 0; i < all.length; i++) {
-            all[i].style.border="solid 1px green";
+var x = 5;
+var y = 7;
+var z = x+y;
+console.log(z);
+
+var A = "Hello ";
+var B = "world!";
+var C = A+B;
+console.log(C);
+
+function sumNPrint(x1, x2){
+    let x3 = x1+x2;
+    console.log(x3);
+}
+
+sumNPrint(x,y);
+sumNPrint(A,B);
+
+var C = "123456789012";
+if(C.length > z){
+    console.log(C);
+}else if(C.length < z){
+    console.log(z);
+}else{
+    console.log("good job!");
+}
+
+L1 = ["Watermelon","Pineapple","Pear","Banana"];
+L2 = ["Apple","Banana","Kiwi","Orange"];
+function findTheBanana(list){
+    for(let i = 0 ; i < list.length ; i++){
+        if(list[i] == "Banana"){
+            // window.alert("found the Banana in "+i);
         }
-        return;
     }
-    for (let i = 0; i < all.length; i++) {
-        all[i].style.border="none";
+}
+findTheBanana(L1);
+findTheBanana(L2);
+
+function findBananaL1(item){
+    if(item=="Banana"){
+        // window.alert("Found Banana in the first list");
+    }
+}
+L1.forEach(findBananaL1);
+
+function greetingFunc(){
+    let d = new Date();
+    let h = d.getHours();
+    let msg = "";
+    if(h < 5){
+        msg = "Good night!";
+    }else if(h<12){
+        msg = "Good morning!";
+    }else if(h<18){
+        msg = "Good afternoon!";
+    }else if(h<20){
+        msg = "Good evening!";
+    }else{
+        msg = "Good night!";
+    }
+    console.log(msg);
+    document.getElementById("greeting").innerHTML = msg +" I'm Lawrence Song."
+}
+var path = window.location.href;
+function splitPathBySlash(p){
+    let res = [];
+    let str = "";
+    for(let i = 0 ; i < p.length ; i++){
+        if(p[i] == "/"){
+            if(str != "") res[res.length] = str;
+            str = "";
+            continue;
+        }
+        str+=p[i];
+    }
+    if(str != "") res[res.length]=str;
+    return res;
+}
+var path_split = splitPathBySlash(path);
+
+if(path_split[path_split.length-1]=="index.html") greetingFunc();
+
+function addYear(){
+    var d = new Date();
+    var year = d.getFullYear();
+    document.getElementById("copyYear").innerHTML = " @" +year;
+}
+
+// function showList(){
+//     let fun_list = document.getElementById("fun_list");
+//     document.getElementById("showList").style.display = "none";
+//     fun_list.style.display = "block";
+// }
+
+$(".read_more_or_less").click(function read_more_or_less(){
+    let status = $(this).closest(".read_more_or_less").attr("status");
+    let read_more = $(this).closest(".read_more_or_less").attr("read_more");
+    let read_less = $(this).closest(".read_more_or_less").attr("read_less");
+    if(status=="Read more"){
+        $(this).siblings(".full_content").css("display","block");
+        $(this).closest(".read_more_or_less").html(read_less);
+        $(this).closest(".read_more_or_less").attr("status","Read less");
+    }else{
+        $(this).siblings(".full_content").css("display","none");
+        $(this).closest(".read_more_or_less").html(read_more);
+        $(this).closest(".read_more_or_less").attr("status","Read more");
+    }
+})
+
+function validate_form(){
+    if(!document.getElementById("name").checkValidity()){
+        document.getElementById("form_msg").style.display="block";
+        document.getElementById("name").style.border="solid red";
     }
 }
 
-// Initializations
-function init_nav(){
-    let links = document.querySelectorAll("nav a")
+function getAdvice(){
+    fetch("https://api.adviceslip.com/advice", {method: "GET"})
+    .then(response => response.json())
+    .then(data => document.getElementById("adviceText").innerHTML= data.slip.advice)
+    .catch(error => console.log(error));
+
+
+}
+
+function getWeather(){
+    fetch("https://api.weather.gov/gridpoints/PBZ/79,67/forecast",{method:"GET"})
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("weather").innerHTML = 
+            data.properties.periods[0].shortForecast +
+             ", " + data.properties.periods[0].temperature + 
+             data.properties.periods[0].temperatureUnit + 
+             "&deg;";
+    })
+    .catch(error => console.log(error));
+}
+
+function selectPage(){
+    let path = window.location.href;
+    path = path.split("/");
+    let nav = document.getElementsByTagName("nav");
+    let links = nav[0].children;
     for (let i = 0; i < links.length; i++) {
         if(links[i].href.includes(path[path.length-1])){
             links[i].classList.add("selected");
-        }
+        }        
     }
 }
 
-// Init Keyboard Accessibility
-var tabIndex_all = [];
-function init_keyboard_accessibility(){
-    let clickables = $(".clickable");
-    for (let index = 0; index < clickables.length; index++) {
-        clickables[index].tabIndex = 0;
+function toggleMenu(){
+    let nav = document.getElementById("links");
+    console.log(nav.className.indexOf("hidden") != -1);
+    if(nav.classList.contains("hidden")){
+        nav.classList.remove("hidden");
+    }else{
+        nav.classList.add("hidden");
     }
-    for (let index = 0; index < all.length; index++) {
-        tabIndex_all[index] = all[index].tabIndex;   
-    }
-    $(".clickable").keydown(function(e){
-        if(e.which==13){
-            $(this).click();
-        }
-    })
 }
 
-function init(){
-    init_nav();
-    init_fullscreen();
-    if(path[path.length-1] == "index.html") init_index();
-    else if(path[path.length-1] == "visitors.html") init_visitors();
-    init_keyboard_accessibility();
+function initPage(){
+    selectPage();
+    addYear();
+    getWeather();
 }
+
